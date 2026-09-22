@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
+    <meta name="robots" content="noindex, nofollow">
+    <title>Weather Composition</title>
+  </head>
+  <body> 
+    <main id="scene">
+      <header id="overlay-text">
+        <p>
+          <span
+            id="zip"
+            contenteditable="plaintext-only"
+            role="textbox"
+            inputmode="numeric"
+            spellcheck="false"
+            aria-label="ZIP code"
+          ></span>
+          <span id="weather-text"></span>
+        </p>
+      </header>
+      <div id="composition">
+        <div class="panel" id="panel-left"></div>
+        <div class="panel" id="panel-right"></div>
+      </div>
+    </main>
+    <script type="module" src="./assets/js/main.js"></script>
+  </body>
+</html>

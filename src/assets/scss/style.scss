@@ -1,0 +1,157 @@
+@import '../../../node_modules/modern-normalize/modern-normalize.css';
+
+:root {
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: "ABCFavorit-Regular", sans-serif;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+}
+
+button {
+  all: unset;
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-align: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+button:focus {
+  outline: none;
+}
+
+input {
+  all: unset;
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-align: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input:focus {
+  outline: none; /* Removes default focus outline */
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  all: unset;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+
+#backdrop {
+  --backdrop-blur: 100px;
+  --backdrop-sat: 900%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-sat));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur))
+    saturate(var(--backdrop-sat));
+  z-index: 2;
+}
+
+// Layout: two conic gradient panels side by side, with the text on top of them
+#scene {
+  --text-height: 8svh;
+  position: relative;
+  isolation: isolate;
+  width: 100vw;
+  height: 100svh;
+}
+
+#overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  min-height: var(--text-height);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  overflow: hidden;
+  color: white;
+  text-transform: uppercase;
+  font-size: 40px;
+  mix-blend-mode: difference;
+}
+
+// Editable ZIP code: plain text inside the sentence, only the caret shows it's editable
+#zip {
+  outline: none;
+  caret-color: currentColor;
+  cursor: text;
+}
+
+#composition {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+
+  // Film grain on top of the gradients
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+.panel {
+  width: 100%;
+  height: 100%;
+}

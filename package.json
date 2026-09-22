@@ -1,0 +1,20 @@
+{
+  "name": "weather-disk",
+  "description": "Color and shape experimentation based on weather data",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview",
+    "host": "vite --host"
+  },
+  "devDependencies": {
+    "sass": "^1.64.2",
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "modern-normalize": "^3.0.1"
+  }
+}
